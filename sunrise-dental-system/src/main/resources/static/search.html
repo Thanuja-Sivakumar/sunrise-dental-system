@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Appointment - Sunrise Dental Clinic</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🦷 Sunrise Dental Clinic</h1>
+        <nav><a href="/dashboard.html">← Back to Menu</a></nav>
+    </header>
+    <div class="container">
+        <h2>Display Appointment Details</h2>
+        <label for="apptNumber">Appointment Number</label>
+        <input type="text" id="apptNumber" placeholder="e.g. APT1001">
+        <button onclick="search()">Search</button>
+
+        <div id="msg" class="message" style="display:none;"></div>
+
+        <table id="resultTable" style="display:none;">
+            <tbody>
+                <tr><th>Appointment Number</th><td id="rNumber"></td></tr>
+                <tr><th>Patient Name</th><td id="rPatient"></td></tr>
+                <tr><th>Address</th><td id="rAddress"></td></tr>
+                <tr><th>Contact Number</th><td id="rContact"></td></tr>
+                <tr><th>Dentist</th><td id="rDentist"></td></tr>
+                <tr><th>Treatment Type</th><td id="rTreatment"></td></tr>
+                <tr><th>Date</th><td id="rDate"></td></tr>
+                <tr><th>Time</th><td id="rTime"></td></tr>
+                <tr><th>Emergency?</th><td id="rEmergency"></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script>
+        requireLogin();
+
+        async function search() {
+            const number = document.getElementById('apptNumber').value.trim();
+            document.getElementById('resultTable').style.display = 'none';
+            if (!number) { showMessage('msg', 'Please enter an appointment number.', 'error'); return; }
+
+            try {
+                const a = await apiFetch('/appointments/' + encodeURIComponent(number));
+                document.getElementById('rNumber').textContent = a.appointmentNumber;
+                document.getElementById('rPatient').textContent = a.patientName;
+                document.getElementById('rAddress').textContent = a.address;
+                document.getElementById('rContact').textContent = a.contactNumber;
+                document.getElementById('rDentist').textContent = a.dentistName;
+                document.getElementById('rTreatment').textContent = a.treatmentTypeName;
+                document.getElementById('rDate').textContent = a.appointmentDate;
+                document.getElementById('rTime').textContent = a.appointmentTime;
+                document.getElementById('rEmergency').textContent = a.emergency ? 'Yes' : 'No';
+                document.getElementById('resultTable').style.display = 'table';
+                document.getElementById('msg').style.display = 'none';
+            } catch (err) {
+                showMessage('msg', err.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>

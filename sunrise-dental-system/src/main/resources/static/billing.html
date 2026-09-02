@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Billing - Sunrise Dental Clinic</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🦷 Sunrise Dental Clinic</h1>
+        <nav><a href="/dashboard.html">← Back to Menu</a></nav>
+    </header>
+    <div class="container">
+        <h2>Calculate &amp; Print Bill</h2>
+        <label for="apptNumber">Appointment Number</label>
+        <input type="text" id="apptNumber" placeholder="e.g. APT1001">
+        <button onclick="generateBill()">Generate Bill</button>
+        <button class="secondary" onclick="window.print()">🖨️ Print Bill</button>
+
+        <div id="msg" class="message" style="display:none;"></div>
+
+        <div id="billBox" class="bill-box" style="display:none;">
+            <h3 style="margin-top:0;">Sunrise Dental Clinic - Receipt</h3>
+            <p><strong>Appointment No:</strong> <span id="bNumber"></span></p>
+            <p><strong>Patient:</strong> <span id="bPatient"></span></p>
+            <table>
+                <tr><th>Item</th><th>Amount (Rs.)</th></tr>
+                <tr><td>Consultation Fee</td><td id="bConsult"></td></tr>
+                <tr><td>Treatment Cost</td><td id="bTreatment"></td></tr>
+                <tr><th>Total</th><th id="bTotal"></th></tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script>
+        requireLogin();
+
+        async function generateBill() {
+            const number = document.getElementById('apptNumber').value.trim();
+            document.getElementById('billBox').style.display = 'none';
+            if (!number) { showMessage('msg', 'Please enter an appointment number.', 'error'); return; }
+
+            try {
+                const bill = await apiFetch('/bills/' + encodeURIComponent(number) + '/generate', { method: 'POST' });
+                document.getElementById('bNumber').textContent = bill.appointmentNumber;
+                document.getElementById('bPatient').textContent = bill.patientName;
+                document.getElementById('bConsult').textContent = bill.consultationFee;
+                document.getElementById('bTreatment').textContent = bill.treatmentCost;
+                document.getElementById('bTotal').textContent = bill.totalAmount;
+                document.getElementById('billBox').style.display = 'block';
+                document.getElementById('msg').style.display = 'none';
+            } catch (err) {
+                showMessage('msg', err.message, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
