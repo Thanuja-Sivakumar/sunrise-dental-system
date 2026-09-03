@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - Sunrise Dental Clinic</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
 <header>
     <h1>🦷 Sunrise Dental Clinic</h1>
     <nav>
         <span id="welcomeMsg"></span>
-        <button class="back-btn" onclick="history.back()">⬅ Back</button>
         <a href="#" onclick="logout()">Log Out</a>
     </nav>
 </header>
@@ -27,7 +26,16 @@
             <a class="card" href="#" onclick="logout(); return false;">🚪 Exit System (Log Out)</a>
         </div>
     </div>
+    <div class="bottom-nav">
+        <button class="back-btn" onclick="history.back()"> Back</button>
+        <a class="home-btn" href="/dashboard.html"> Home</a>
+    </div>
 </div>
+<footer class="site-footer">
+    <p class="footer-tagline">Let's keep your smile healthy and bright - right here!</p>
+    <p class="footer-links"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p class="footer-hotline">Hotline: 054 4554556</p>
+</footer>
 <script src="/js/app.js"></script>
 <script>
     requireLogin();

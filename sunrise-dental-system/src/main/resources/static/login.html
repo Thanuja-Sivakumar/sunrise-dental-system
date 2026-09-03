@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>Login - Sunrise Dental Clinic</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+
 </head>
 <body>
     <header>
         <h1>🦷 Sunrise Dental Clinic</h1>
     </header>
-    <div class="container" style="max-width:420px;">
+    <div class="main-wrap">
+        <div class="container" style="max-width:420px;">
         <h2>Staff Login</h2>
         <p class="helptext">Only authorized clinic staff may access this system.</p>
         <form id="loginForm">
@@ -24,7 +27,12 @@
         <div id="msg" class="message" style="display:none;"></div>
         <p class="helptext">Demo accounts — admin / reception, password: <code>password123</code></p>
     </div>
-
+    </div>
+    <footer class="site-footer">
+        <p class="footer-tagline">Let's keep your smile healthy and bright - right here!</p>
+        <p class="footer-links"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p class="footer-hotline">Hotline: 054 4554556</p>
+    </footer>
     <script src="/js/app.js"></script>
     <script>
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
