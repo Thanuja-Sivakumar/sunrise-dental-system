@@ -124,6 +124,8 @@ th { background: #f4f7f8; }
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
+    margin: 0;
+    line-height: 1.4;
 }
 .bottom-nav .back-btn:hover,
 .bottom-nav .home-btn:hover {
