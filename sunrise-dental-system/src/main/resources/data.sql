@@ -1,8 +1,5 @@
--- Seed data for Sunrise Dental Clinic (MySQL syntax)
--- Password for both users is "password123" (BCrypt-hashed below)
--- INSERT ... ON DUPLICATE KEY UPDATE is MySQL's equivalent of H2's MERGE INTO:
--- it inserts the row on first run, and safely does nothing harmful on later
--- app restarts instead of throwing a duplicate-key error.
+
+
 
 INSERT INTO users (id, username, password, role, full_name) VALUES
   (1, 'admin', '$2b$10$2leWS2XuD83OMcnU.LyQUOlCP05YgNkihv0yOJBF84xpRpo.ZrE/i', 'ADMIN', 'System Administrator'),
@@ -10,8 +7,8 @@ INSERT INTO users (id, username, password, role, full_name) VALUES
 ON DUPLICATE KEY UPDATE username = VALUES(username);
 
 INSERT INTO dentists (id, name, specialization) VALUES
-  (1, 'Dr. Nimal Perera', 'General Dentistry'),
-  (2, 'Dr. Ishara Fernando', 'Orthodontics'),
+  (1, 'Dr. Nimalkanth', 'General Dentistry'),
+  (2, 'Dr. Ishara', 'Orthodontics'),
   (3, 'Dr. Kavindi Silva', 'Oral Surgery')
 ON DUPLICATE KEY UPDATE name = VALUES(name);
 

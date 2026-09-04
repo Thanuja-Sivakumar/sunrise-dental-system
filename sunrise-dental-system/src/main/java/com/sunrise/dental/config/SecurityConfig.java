@@ -15,14 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
- * Secures the system so that "only authorized staff can use the system"
- * (Task 1: User Authentication requirement).
- *
- * - Static assets and the login endpoint are public.
- * - Every other API endpoint requires a valid authenticated session.
- * - Passwords are stored using BCrypt, never in plain text.
- * - Session-based auth is used (not JWT) to keep the coursework scope
- *   manageable, while still demonstrating a real Spring Security pipeline.
+ * "only authorized staff can use the system"
  */
 @Configuration
 @EnableWebSecurity
