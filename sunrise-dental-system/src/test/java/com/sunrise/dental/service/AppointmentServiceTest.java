@@ -23,11 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-/**
- * Covers Task 2 (Register New Appointment) and Task 3 (Display / search)
- * business logic in isolation from the database, using Mockito test doubles
- * for the DAO and repositories.
- */
 @ExtendWith(MockitoExtension.class)
 class AppointmentServiceTest {
 

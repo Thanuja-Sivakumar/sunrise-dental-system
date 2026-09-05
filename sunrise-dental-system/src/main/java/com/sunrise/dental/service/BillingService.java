@@ -7,12 +7,6 @@ import com.sunrise.dental.pattern.factory.BillFactory;
 import com.sunrise.dental.repository.BillRepository;
 import org.springframework.stereotype.Service;
 
-/**
- * Implements Task 4 (Calculate and Print Bill). Delegates the actual
- * calculation to the Factory + Strategy patterns so this service stays
- * focused on orchestration (find appointment -> build bill -> persist ->
- * return), not on billing arithmetic.
- */
 @Service
 public class BillingService {
 

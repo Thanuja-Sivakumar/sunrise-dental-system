@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Centralised error handling so every controller returns consistent,
- * user-friendly JSON error messages instead of raw stack traces - part of
- * the "appropriate messages" requirement in the brief.
- */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

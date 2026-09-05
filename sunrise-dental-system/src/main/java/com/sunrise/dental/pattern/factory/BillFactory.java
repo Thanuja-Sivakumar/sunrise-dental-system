@@ -8,19 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/**
- * FACTORY DESIGN PATTERN
- * ------------------------
- * Centralises the creation of Bill objects. Client code (BillingService)
- * simply calls factory.createBill(appointment) without needing to know:
- *   1. Which BillCalculationStrategy applies to this appointment
- *      (Standard vs Emergency), or
- *   2. How the Bill entity's fields should be populated/derived.
- *
- * This keeps object-construction logic out of the service layer and makes
- * it trivial to add new Bill "flavours" later (e.g. InsuranceBill) by
- * extending this factory rather than editing every calling class.
- */
 @Component
 public class BillFactory {
 

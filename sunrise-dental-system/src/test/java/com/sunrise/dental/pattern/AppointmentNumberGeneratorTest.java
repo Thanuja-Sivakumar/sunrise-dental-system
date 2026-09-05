@@ -11,15 +11,6 @@ import java.util.concurrent.Executors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * TEST RATIONALE (see docs/TestPlan.md for the full plan):
- * The AppointmentNumberGenerator is the single most critical piece of logic
- * for data integrity - if it ever produced a duplicate number, two different
- * patients could be merged under one appointment record. These tests were
- * written BEFORE the surrounding service code was wired in (test-driven
- * development), driving the decision to use AtomicLong + a private
- * constructor.
- */
 class AppointmentNumberGeneratorTest {
 
     @Test

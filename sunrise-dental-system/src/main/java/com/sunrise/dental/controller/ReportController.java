@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-// Value-added reports (see brief: "come up with a suitable set of reports")
 @RestController
 @RequestMapping("/api/reports")
 public class ReportController {

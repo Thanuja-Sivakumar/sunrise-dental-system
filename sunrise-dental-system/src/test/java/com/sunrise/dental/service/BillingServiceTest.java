@@ -22,12 +22,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-/**
- * Covers Task 4 (Calculate and Print Bill), including the Strategy pattern's
- * two billing rules (standard vs. emergency surcharge) via the real
- * BillFactory wired with real strategy objects, so the arithmetic itself is
- * genuinely exercised rather than mocked away.
- */
 @ExtendWith(MockitoExtension.class)
 class BillingServiceTest {
 

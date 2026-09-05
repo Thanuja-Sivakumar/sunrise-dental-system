@@ -4,11 +4,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**
- * Input DTO for registering a new appointment. Keeping a separate DTO from
- * the JPA entity means the web layer never exposes internal persistence
- * details, and lets us apply request-specific validation.
- */
+
 public class AppointmentRequest {
 
     @NotBlank(message = "Patient name is required")

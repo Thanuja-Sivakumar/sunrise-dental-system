@@ -4,7 +4,7 @@ import com.sunrise.dental.dto.BillResponse;
 import com.sunrise.dental.service.BillingService;
 import org.springframework.web.bind.annotation.*;
 
-// Task 4: Calculate and Print Bill
+// Calculate and Print Bill
 @RestController
 @RequestMapping("/api/bills")
 public class BillController {

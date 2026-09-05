@@ -4,10 +4,6 @@ import com.sunrise.dental.model.Appointment;
 import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
-/**
- * Emergency appointments attract a flat 25% surcharge on the treatment cost
- * (out-of-hours / urgent care premium), reflecting a real clinic policy.
- */
 @Component
 public class EmergencyBillStrategy implements BillCalculationStrategy {
 

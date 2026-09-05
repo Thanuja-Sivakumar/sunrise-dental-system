@@ -14,10 +14,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Implements Task 2 (Register New Appointment) and Task 3 (Display /
- * Search Appointment Details) from the assessment brief.
- */
 @Service
 public class AppointmentService {
 
